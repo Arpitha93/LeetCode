@@ -14,13 +14,13 @@ public class LongestCommonPrefix {
 
         public String longestCommonPrefix(String[] strs, int n) {
 
-            int min = Integer.MAX_VALUE;
-            for(int i=0; i<n-1; i++)
-            {
-                if(strs[i].length() < min)
-                    min = strs[i].length();
-            }
-            return min;
+//            int min = Integer.MAX_VALUE;
+//            for(int i=0; i<n-1; i++)
+//            {
+//                if(strs[i].length() < min)
+//                    min = strs[i].length();
+//            }
+//            return min;
 
 //         String myPrefix = "";
 //         int low = 0; high = min;
@@ -50,8 +50,8 @@ public class LongestCommonPrefix {
 
 
             StringBuilder sb = new StringBuilder();
-            findMin(strs, n);
-            for(int i=0; i<min.length(); i++){
+            int min = findMin(strs, n);
+            for(int i=0; i<min; i++){
                 for(int j=0; j<strs.length-1; j++){
                     if(strs[j].charAt(i) != strs[j+1].charAt(i)){
                         if(sb.length()==0)
