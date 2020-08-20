@@ -67,3 +67,28 @@ public class LongestCommonPrefix {
         }
     }
 
+    //*******************************************************
+
+class Solution{
+    public String longestCommonPrefix(String[] strs) {
+        int min = Integer.MAX_VALUE;
+        String myPrefix = "";
+        for(int i=0; i<strs.length; i++){
+            if(strs[i].length() < min){
+                myPrefix = strs[i];
+                min = strs[i].length();
+            }
+        }
+        for(int i=0; i<strs.length; i++){
+            String str = strs[i];
+            if(!(str.startsWith(myPrefix))){
+                myPrefix = myPrefix.substring(0, myPrefix.length()-1);
+                i--;
+            }
+        }
+        myPrefix = myPrefix.trim();
+        return myPrefix;
+    }
+}
+
+

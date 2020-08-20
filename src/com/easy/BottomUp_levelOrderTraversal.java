@@ -14,36 +14,40 @@ public class BottomUp_levelOrderTraversal {
 
         public List<List<Integer>> levelOrderBottom(TreeNode root) {
             List<List<Integer>> res = new ArrayList<>();
+            if(root == null) {
+                return res;
+            }
 
             Stack<TreeNode> S = new Stack();
             Queue<TreeNode> Q = new LinkedList();
             Q.add(root);
 
-            while(Q.isEmpty() == false)
-            {
+            while(Q.isEmpty() == false) {
+                List<Integer> num = new ArrayList<>();
+
                 root = Q.peek();
                 Q.remove();
                 S.push(root);
 
-                if(root.right != null){
+                if (root.right != null) {
                     Q.add(root.right);
                 }
 
-                if(root.left != null){
+                if (root.left != null) {
                     Q.add(root.left);
                 }
 
+
+                while (S.empty() == false) {
+
+                    root = S.peek();
+                    // System.out.print(root.val + " ");
+                    num.add(root.val);
+                    S.pop();
+                }
+                res.add(0, num);
             }
-            while (S.empty() == false)
-            {
-                root = S.peek();
-                System.out.print(root.val + " ");
-                S.pop();
-            }
-
-
-            return ;
-
+            return res;
         }
 
 }

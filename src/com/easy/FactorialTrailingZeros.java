@@ -1,4 +1,13 @@
 package com.easy;
 
 public class FactorialTrailingZeros {
+    public int trailingZeroes(int n) {
+        int count = 0;
+
+        for(int i=5; i<=5; i*=5){
+
+            count += n/i;
+        }
+        return count;
+    }
 }
